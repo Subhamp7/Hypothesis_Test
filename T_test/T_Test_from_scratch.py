@@ -15,9 +15,7 @@ import pandas as pd
 
 
 dataset=pd.read_csv("golf.csv")
-data1=dataset["Current"]
-dats2=dataset["New"]
-dats2=dats2[0:3]
+data1, dats2 = dataset["Current"], dataset["New"]
 # function for calculating the t-test for two independent samples
 def independent_ttest(data1, data2, alpha):
 	# calculate means
@@ -48,6 +46,6 @@ print('t=%.3f, df=%d, cv=%.3f, p=%.3f' % (t_stat, df, cv, p))
 
 # interpret via p-value
 if p > alpha:
-	print('Accept null hypothesis that the means are equal.')
+	print('Accept null hypothesis (Means are equal).')
 else:
-	print('Reject the null hypothesis that the means are equal.')
+	print('Reject null hypothesis (Means are not equal).')
